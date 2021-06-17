@@ -13,7 +13,7 @@ Pod::Spec.new do |spec|
   spec.source_files  ="DINetworking/**/*.{h,swift}"
   spec.requires_arc = true
   spec.platform     = :ios
-  spec.ios.deployment_target = "9.1"
+  spec.ios.deployment_target = "10.0"
 
   spec.dependency "Moya"
 end
