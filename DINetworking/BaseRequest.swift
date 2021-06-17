@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-protocol BaseRequest : TargetType {
+public protocol BaseRequest : TargetType {
     var body:[String: Any] {get}
 }
 extension BaseRequest {
