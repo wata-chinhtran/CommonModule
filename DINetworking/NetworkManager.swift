@@ -10,7 +10,7 @@ import Moya
 
 public class NetworkManager {
     
-    static let instance = NetworkManager()
+    public static let instance = NetworkManager()
     var token: String = ""
     var baseUrl:String = ""
     var provider = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin()])
