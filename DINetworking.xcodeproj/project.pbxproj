@@ -71,7 +71,6 @@
 				2ECC7E582BC9F5374A138B0E /* Pods-DINetworking.debug.xcconfig */,
 				748949E819A666E96619B266 /* Pods-DINetworking.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -322,6 +321,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2ECC7E582BC9F5374A138B0E /* Pods-DINetworking.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -348,6 +348,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 748949E819A666E96619B266 /* Pods-DINetworking.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
