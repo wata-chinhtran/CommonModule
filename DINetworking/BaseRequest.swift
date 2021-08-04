@@ -10,6 +10,7 @@ import Moya
 
 public protocol BaseRequest : TargetType {
     var body:[String: Any] {get}
+    var header: [String: Any] {get}
 }
 extension BaseRequest {
     
