@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18580542267B2CD300A5C420 /* DINetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 18580540267B2CD300A5C420 /* DINetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18580542267B2CD300A5C420 /* CommonModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 18580540267B2CD300A5C420 /* CommonModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1858054A267B2D3E00A5C420 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18580548267B2D3E00A5C420 /* NetworkManager.swift */; };
 		1858054B267B2D3E00A5C420 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18580549267B2D3E00A5C420 /* BaseRequest.swift */; };
-		B72A27F91BC8F4E3827CA873 /* Pods_DINetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E66116665ABBD878835D15 /* Pods_DINetworking.framework */; };
+		E33972CCD7D6B3A828715CCE /* Pods_CommonModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8834A1C160893F3C7E1706D5 /* Pods_CommonModule.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1858053D267B2CD300A5C420 /* DINetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DINetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		18580540267B2CD300A5C420 /* DINetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DINetworking.h; sourceTree = "<group>"; };
+		1858053D267B2CD300A5C420 /* CommonModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18580540267B2CD300A5C420 /* CommonModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonModule.h; sourceTree = "<group>"; };
 		18580541267B2CD300A5C420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18580548267B2D3E00A5C420 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		18580549267B2D3E00A5C420 /* BaseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		2ECC7E582BC9F5374A138B0E /* Pods-DINetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DINetworking.debug.xcconfig"; path = "Target Support Files/Pods-DINetworking/Pods-DINetworking.debug.xcconfig"; sourceTree = "<group>"; };
-		59E66116665ABBD878835D15 /* Pods_DINetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DINetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58A15EA649349C3E108C163C /* Pods-CommonModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonModule.release.xcconfig"; path = "Target Support Files/Pods-CommonModule/Pods-CommonModule.release.xcconfig"; sourceTree = "<group>"; };
 		748949E819A666E96619B266 /* Pods-DINetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DINetworking.release.xcconfig"; path = "Target Support Files/Pods-DINetworking/Pods-DINetworking.release.xcconfig"; sourceTree = "<group>"; };
+		8834A1C160893F3C7E1706D5 /* Pods_CommonModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E315CF0D5C96B112928E8C75 /* Pods-CommonModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonModule.debug.xcconfig"; path = "Target Support Files/Pods-CommonModule/Pods-CommonModule.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,7 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B72A27F91BC8F4E3827CA873 /* Pods_DINetworking.framework in Frameworks */,
+				E33972CCD7D6B3A828715CCE /* Pods_CommonModule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,7 +41,7 @@
 		18580533267B2CD300A5C420 = {
 			isa = PBXGroup;
 			children = (
-				1858053F267B2CD300A5C420 /* DINetworking */,
+				1858053F267B2CD300A5C420 /* CommonModule */,
 				1858053E267B2CD300A5C420 /* Products */,
 				99A98840CA6D7717A14BBC33 /* Pods */,
 				A8B9C7BAF47AF8C24B2D241D /* Frameworks */,
@@ -49,20 +51,20 @@
 		1858053E267B2CD300A5C420 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1858053D267B2CD300A5C420 /* DINetworking.framework */,
+				1858053D267B2CD300A5C420 /* CommonModule.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1858053F267B2CD300A5C420 /* DINetworking */ = {
+		1858053F267B2CD300A5C420 /* CommonModule */ = {
 			isa = PBXGroup;
 			children = (
 				18580549267B2D3E00A5C420 /* BaseRequest.swift */,
 				18580548267B2D3E00A5C420 /* NetworkManager.swift */,
-				18580540267B2CD300A5C420 /* DINetworking.h */,
+				18580540267B2CD300A5C420 /* CommonModule.h */,
 				18580541267B2CD300A5C420 /* Info.plist */,
 			);
-			path = DINetworking;
+			path = CommonModule;
 			sourceTree = "<group>";
 		};
 		99A98840CA6D7717A14BBC33 /* Pods */ = {
@@ -70,6 +72,8 @@
 			children = (
 				2ECC7E582BC9F5374A138B0E /* Pods-DINetworking.debug.xcconfig */,
 				748949E819A666E96619B266 /* Pods-DINetworking.release.xcconfig */,
+				E315CF0D5C96B112928E8C75 /* Pods-CommonModule.debug.xcconfig */,
+				58A15EA649349C3E108C163C /* Pods-CommonModule.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -77,7 +81,7 @@
 		A8B9C7BAF47AF8C24B2D241D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				59E66116665ABBD878835D15 /* Pods_DINetworking.framework */,
+				8834A1C160893F3C7E1706D5 /* Pods_CommonModule.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -89,16 +93,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18580542267B2CD300A5C420 /* DINetworking.h in Headers */,
+				18580542267B2CD300A5C420 /* CommonModule.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1858053C267B2CD300A5C420 /* DINetworking */ = {
+		1858053C267B2CD300A5C420 /* CommonModule */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18580545267B2CD300A5C420 /* Build configuration list for PBXNativeTarget "DINetworking" */;
+			buildConfigurationList = 18580545267B2CD300A5C420 /* Build configuration list for PBXNativeTarget "CommonModule" */;
 			buildPhases = (
 				67408D8240DA9901AD7071C8 /* [CP] Check Pods Manifest.lock */,
 				18580538267B2CD300A5C420 /* Headers */,
@@ -110,9 +114,9 @@
 			);
 			dependencies = (
 			);
-			name = DINetworking;
+			name = CommonModule;
 			productName = DINetworking;
-			productReference = 1858053D267B2CD300A5C420 /* DINetworking.framework */;
+			productReference = 1858053D267B2CD300A5C420 /* CommonModule.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -129,7 +133,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 18580537267B2CD300A5C420 /* Build configuration list for PBXProject "DINetworking" */;
+			buildConfigurationList = 18580537267B2CD300A5C420 /* Build configuration list for PBXProject "CommonModule" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -142,7 +146,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1858053C267B2CD300A5C420 /* DINetworking */,
+				1858053C267B2CD300A5C420 /* CommonModule */,
 			);
 		};
 /* End PBXProject section */
@@ -173,7 +177,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DINetworking-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CommonModule-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -319,7 +323,7 @@
 		};
 		18580546267B2CD300A5C420 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2ECC7E582BC9F5374A138B0E /* Pods-DINetworking.debug.xcconfig */;
+			baseConfigurationReference = E315CF0D5C96B112928E8C75 /* Pods-CommonModule.debug.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -328,7 +332,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DINetworking/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CommonModule/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -346,7 +350,7 @@
 		};
 		18580547267B2CD300A5C420 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 748949E819A666E96619B266 /* Pods-DINetworking.release.xcconfig */;
+			baseConfigurationReference = 58A15EA649349C3E108C163C /* Pods-CommonModule.release.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -355,7 +359,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DINetworking/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CommonModule/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -373,7 +377,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		18580537267B2CD300A5C420 /* Build configuration list for PBXProject "DINetworking" */ = {
+		18580537267B2CD300A5C420 /* Build configuration list for PBXProject "CommonModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18580543267B2CD300A5C420 /* Debug */,
@@ -382,7 +386,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		18580545267B2CD300A5C420 /* Build configuration list for PBXNativeTarget "DINetworking" */ = {
+		18580545267B2CD300A5C420 /* Build configuration list for PBXNativeTarget "CommonModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18580546267B2CD300A5C420 /* Debug */,
