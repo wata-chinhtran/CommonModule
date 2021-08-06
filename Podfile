@@ -7,5 +7,11 @@ target 'CommonModule' do
 
   # Pods for DINetworking
   pod 'Moya'
+  
+  target 'CommonModuleTests' do
+  end
 
 end
+
+
+
