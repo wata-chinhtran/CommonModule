@@ -11,6 +11,7 @@ import Moya
 public protocol BaseRequest : TargetType {
     var body:[String: Any] {get}
 }
+
 extension BaseRequest {
     
     public var baseURL: URL {
