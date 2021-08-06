@@ -11,3 +11,8 @@ How's to create project as lirary/framwork?
     2.1 Go to current target -> build phases -> Headers
     2.2 Drop & drag all header files to public section if you allow to access from outside else move to private section when you dont allow user see or access to these class/function was define.
     <img src= "https://github.com/wata-chinhtran/CommonModule/blob/master/public_file_objective_c.png" />
+3. Add example project as guideline how to use: </br>
+    3.1 Add new target -> create new single app
+    3.2 Import current module as framework. </br>    
+    <img src= "https://github.com/wata-chinhtran/CommonModule/blob/master/add_example.png" />
+    Or we can do with steps with flow at: https://programmingwithswift.com/create-a-swift-framework/ 
