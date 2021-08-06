@@ -15,4 +15,4 @@ How's to create project as lirary/framwork?
     3.1 Add new target -> create new single app
     3.2 Import current module as framework. </br>    
     <img src= "https://github.com/wata-chinhtran/CommonModule/blob/master/add_example.png" />
-    Or we can do with steps with flow at: https://programmingwithswift.com/create-a-swift-framework/ 
+    Or we can do with steps at: https://programmingwithswift.com/create-a-swift-framework/ 
