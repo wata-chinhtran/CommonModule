@@ -15,7 +15,7 @@ How's to create project as lirary/framwork?
     3.1 Add new target -> create new single app
     3.2 Import current module as framework. </br>    
     <img src= "https://github.com/wata-chinhtran/CommonModule/blob/master/add_example.png" />
-    Or we can do with steps at: https://programmingwithswift.com/create-a-swift-framework/ </br>
+    Or we can do with steps at: https://programmingwithswift.com/create-a-swift-framework/ </br> </br>
 
 Getting Started with Swift Unit Testing in Xcode
 1. Adding a Unit Test Target to Your Xcode Project</br>
