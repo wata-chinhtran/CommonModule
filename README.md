@@ -15,8 +15,26 @@ How's to create project as lirary/framwork?
     3.1 Add new target -> create new single app
     3.2 Import current module as framework. </br>    
     <img src= "https://github.com/wata-chinhtran/CommonModule/blob/master/add_example.png" />
-    Or we can do with steps at: https://programmingwithswift.com/create-a-swift-framework/ </br> </br>
+    Or we can do with steps at: https://programmingwithswift.com/create-a-swift-framework/ </br> 
+4. Create podspec file with template:</br>
+  Pod::Spec.new do |spec| </br>
+   spec.name = "{module_name}" //ex: Feature Module</br>
+   spec.version = "1.0.0"</br>
+   spec.summary = "Sample framework from blog post, not for real world use.Functional JSON parsing library for Swift."</br>
+   spec.homepage = "{repo_link}" //ex: https://github.com/wata-chinhtran/FeatureModule.git</br>
+   spec.license = { :type => 'MIT', :file => 'LICENSE' }</br>
+   spec.authors = {</br>
+    "{author_name}" => '{author_email}'</br>
+   }</br>
+   spec.social_media_url = "{repo_link}" //ex: https://github.com/wata-chinhtran/FeatureModule.git</br>
 
+   spec.source = { :git => "{repo_link}" //ex: https://github.com/wata-chinhtran/FeatureModule.git, :tag => "v#{spec.version}", :submodules => true }</br>
+   spec.source_files  ="{module_name}/**/*.{h,swift}"</br>
+   spec.requires_arc = true</br>
+   spec.platform     = :ios</br>
+   spec.ios.deployment_target = "10.0"</br>
+   spec.dependency "Moya" //optional</br>
+  end</br></br>
 Getting Started with Swift Unit Testing in Xcode
 1. Adding a Unit Test Target to Your Xcode Project</br>
     1.1 Starting with a new project
