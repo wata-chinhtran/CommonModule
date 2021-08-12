@@ -61,9 +61,9 @@ final class OnlineProvider {
                     }
                     
                     // When error from response JSON
-                    if let status = result.status, !status, let message = result.message, !message.isEmpty, let code = result.code, !code.isEmpty {
+                    if let status = result.status, !status {
                         DispatchQueue.main.async {
-                            completion(.failure(BaseAPIError.errorOfResponse(title: "Warning", message: message, code: code)))
+                            completion(.failure(BaseAPIError.errorOfResponse(title: "Warning", message: result.message ?? "", code: result.code ?? "")))
                         }
                         return
                     }
