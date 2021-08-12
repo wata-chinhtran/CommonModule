@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
   spec.social_media_url = "https://github.com/wata-chinhtran/CommonModule.git"
 
   spec.source = { :git => "https://github.com/wata-chinhtran/CommonModule.git", :tag => "v#{spec.version}", :submodules => true }
-  spec.source_files  ="CommonModule/**/*.{h,swift}"
+  spec.source_files  = "CommonModule/**/*.{h,swift}"
   spec.requires_arc = true
   spec.platform     = :ios
   spec.ios.deployment_target = "10.0"
