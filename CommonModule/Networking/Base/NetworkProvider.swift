@@ -48,7 +48,7 @@ final class OnlineProvider {
     ///     - target: Target API
     ///     - type:  type for encode
     ///     - completion: return value from server
-    public func request<T: Codable>(_ target: MultiTarget, type: T.Type, completion: @escaping (Result<T, BaseAPIError>) -> Void) {
+    public func request<T: Codable>(_ target: MultiTarget, type: T.Type, completion: @escaping (Result<T?, BaseAPIError>) -> Void) {
         provider.request(target) { (result) in
             switch result {
             case .success(let response):
@@ -67,14 +67,9 @@ final class OnlineProvider {
                         }
                         return
                     }
-                    
-                    guard let data = results.data else {
-                        completion(.failure(BaseAPIError.requestError(title: "Warning", message: "No Data")))
-                        return
-                    }
             
                     DispatchQueue.main.async {
-                        completion(.success(data))
+                        completion(.success(results.data))
                     }
                 } else {
                     // When call API error
@@ -111,7 +106,7 @@ public struct NetworkProvider: NetworkingType {
     /// - T: Target API
     /// - type: type for encode
     /// - completion: return value from server
-    public func request<T: Codable>(_ target: MultiTarget, type: T.Type, completion:@escaping (Result<T, BaseAPIError>) -> Void) {
+    public func request<T: Codable>(_ target: MultiTarget, type: T.Type, completion:@escaping (Result<T?, BaseAPIError>) -> Void) {
         let actualRequest: () = self.provider.request(target, type: T.self, completion: completion)
         return actualRequest
     }
