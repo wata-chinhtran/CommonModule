@@ -54,21 +54,21 @@ final class OnlineProvider {
             case .success(let response):
                 // When call api success
                 if (200...299).contains(response.statusCode) {
-                    guard let result = try? JSONDecoder().decode(BaseAPIResponse<T>.self, from: response.data) else {
+                    guard let results = try? JSONDecoder().decode(BaseAPIResponse<T>.self, from: response.data) else {
                         // Decode error
                         completion(.failure(BaseAPIError.parseResponseDataFalse(title: target.path)))
                         return
                     }
                     
                     // When error from response JSON
-                    if let status = result.status, !status {
+                    if let status = results.status, !status {
                         DispatchQueue.main.async {
-                            completion(.failure(BaseAPIError.errorOfResponse(title: "Warning", message: result.message ?? "", code: result.code ?? "")))
+                            completion(.failure(BaseAPIError.errorOfResponse(title: "Warning", message: results.message ?? "", code: results.code ?? "")))
                         }
                         return
                     }
                     
-                    guard let data = result.data else {
+                    guard let data = results.data else {
                         completion(.failure(BaseAPIError.requestError(title: "Warning", message: "No Data")))
                         return
                     }
