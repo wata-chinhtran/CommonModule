@@ -8,12 +8,11 @@
 import Foundation
 
 public struct BaseAPIResponse<T: Codable>: Codable {
-    var status: Bool?
-    var message: String?
-    var code: String?
+    var error: APIError?
     var data: T?
+    var success = false
     
     enum CodingKeys: String, CodingKey {
-        case status, message, code, data
+        case error, data, success
     }
 }

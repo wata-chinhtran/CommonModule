@@ -61,24 +61,25 @@ final class OnlineProvider {
                     }
                     
                     // When error from response JSON
-                    if let status = results.status, !status {
+                    if let error = results.error {
                         DispatchQueue.main.async {
-                            completion(.failure(BaseAPIError.errorOfResponse(title: "Warning", message: results.message ?? "", code: results.code ?? "")))
+                            completion(.failure(BaseAPIError.requestError(title: "Warning", message: error.message ?? "", code: error.code)))
                         }
                         return
                     }
-            
+                    
+                    // Valid data
                     DispatchQueue.main.async {
                         completion(.success(results.data))
                     }
                 } else {
                     // When call API error
                     let error = NSError(domain: target.path, code: response.statusCode, userInfo: nil)
-                    completion(.failure(BaseAPIError.requestError(title: target.path, message: error.localizedDescription)))
+                    completion(.failure(BaseAPIError.requestError(title: target.path, message: error.localizedDescription, code: error.code)))
                 }
             case .failure(let error):
                 let error = NSError(domain: target.path, code: error.errorCode, userInfo: nil)
-                completion(.failure(BaseAPIError.requestError(title: target.path, message: error.localizedDescription)))
+                completion(.failure(BaseAPIError.requestError(title: target.path, message: error.localizedDescription, code: error.code)))
             }
         }
     }
