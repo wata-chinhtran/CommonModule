@@ -16,3 +16,7 @@ extension PropertyNames
     }
 }
 
+struct LSResponse<T: Codable> {
+    let data: T?
+    let error: LSErrorResponse?
+}

@@ -49,3 +49,20 @@ public enum BaseAPIError: Error {
         }
     }
 }
+
+struct LSErrorResponse: Codable {
+    let message: String?
+    let errors: [String: [String]]?
+    let code: Int?
+    let type: String?
+    let datetime: String?
+    let request_id: String?
+
+    var errorMessage: String {
+        var contents = errors?.values.map { $0.joined(separator: "\n") } ?? []
+        if let msg = message, contents.count <= 0 {
+            contents.insert(msg, at: 0)
+        }
+        return contents.joined(separator: "\n")
+    }
+}
