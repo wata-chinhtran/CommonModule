@@ -305,3 +305,41 @@ class ThemeManager {
     let themeClosed = "#929292"
     let themeInvoiceInprogress = "#fd9400"
 }
+
+extension UIColor {
+    static let primary: UIColor = UIColor(hex: 0xFF9645)
+    static let disabled: UIColor = UIColor(hex: 0x7F7F7F)
+    static let heading: UIColor = UIColor(hex: 0x323F4C)
+    static let paragraph: UIColor = UIColor(hex: 0x444953)
+    static let hint: UIColor = UIColor.black.withAlphaComponent(0.5)
+    
+    // image view
+    static var tableBg = UIColor(hex: 0xF4F4F4)
+    static var imageViewBg = UIColor(hex: 0xD8D8D8)
+
+    // text
+    static var text2 = UIColor(hex: 0x222222)
+    static var text3 = UIColor(hex: 0x333333)
+    static var text5 = UIColor(hex: 0x555555)
+    static var text6 = UIColor(hex: 0x666666)
+    static var text8 = UIColor(hex: 0x888888)
+    static var text9 = UIColor(hex: 0x999999)
+    static var textA = UIColor(hex: 0x222222)
+    static var textF = UIColor(hex: 0xFFFFFF)
+
+    // socials
+    static var google = UIColor(hex: 0xDF4A32)
+    static var facebook = UIColor(hex: 0x3A5A99)
+
+    // bubbles chat
+    static let bubbleMe: UIColor = primary
+    static let bubbleOthers: UIColor = UIColor.lightGray.withAlphaComponent(0.15)
+    
+    // table view
+    static var separatorLine = UIColor(hex: 0xF6F6F6)
+    static var separatorLineDark = UIColor(hex: 0xe6e6e6)
+
+    static var promotion = UIColor(hex: 0xFF0037)
+    static let backgroundImage: UIColor = UIColor(hex: 0xD8D8D8)
+    static let disabledButton: UIColor = UIColor.black.withAlphaComponent(0.25)
+}
