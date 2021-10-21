@@ -2,7 +2,7 @@
 # platform :ios, '9.0'
 
 
-target 'UseCommonModuleSample' do
+target 'Example' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
