@@ -16,5 +16,4 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "10.0"
 
   spec.dependency "Moya"
-  spec.dependency "Kingfisher"
 end
