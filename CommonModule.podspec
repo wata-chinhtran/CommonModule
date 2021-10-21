@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "CommonModule"
-  spec.version = "0.1.6"
+  spec.version = "0.1.7"
   spec.summary = "Sample framework from blog post, not for real world use.Functional JSON parsing library for Swift."
   spec.homepage = "https://github.com/wata-chinhtran/CommonModule.git"
   spec.license = { :type => 'MIT', :file => 'LICENSE' }
