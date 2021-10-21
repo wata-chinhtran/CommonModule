@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "CommonModule"
-  spec.version = "0.1.7"
+  spec.version = "0.1.8"
   spec.summary = "Sample framework from blog post, not for real world use.Functional JSON parsing library for Swift."
   spec.homepage = "https://github.com/wata-chinhtran/CommonModule.git"
   spec.license = { :type => 'MIT', :file => 'LICENSE' }
@@ -13,7 +13,7 @@ Pod::Spec.new do |spec|
   spec.source_files  = "CommonModule/**/*.{h,swift}"
   spec.requires_arc = true
   spec.platform     = :ios
-  spec.ios.deployment_target = "10.0"
+  spec.ios.deployment_target = "11.0"
 
   spec.dependency "Moya"
   spec.dependency "Kingfisher"
