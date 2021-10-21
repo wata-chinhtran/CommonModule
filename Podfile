@@ -19,6 +19,6 @@ target 'CommonModule' do
 
   # Pods for DINetworking
   pod 'Moya'
-  pod 'Kingfisher'
+  
 
 end
