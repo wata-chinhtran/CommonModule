@@ -29,7 +29,7 @@ open class Label: UILabel {
     }
     
     public func action(_ closure: @escaping Action) {
-        Log("action did set")
+        //Log("action did set")
         if actionOnTouch == nil {
             let gesture = UITapGestureRecognizer(
                 target: self,

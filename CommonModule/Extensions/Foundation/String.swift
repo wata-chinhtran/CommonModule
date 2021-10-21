@@ -10,15 +10,15 @@ extension String {
         self = self.capitalizingFirstLetter()
     }
     
-    func height(withConstrainedWidth width: CGFloat, font: UIFont, numOfLine: Int = 0) -> CGFloat {
-       let label =  UILabel(frame: CGRect(x: 0, y: 0, width: width, height: .greatestFiniteMagnitude))
-       label.numberOfLines = numOfLine
-       label.text = self
-       label.font = font
-       label.sizeToFit()
-
-       return label.frame.height
-    }
+//    func height(withConstrainedWidth width: CGFloat, font: UIFont, numOfLine: Int = 0) -> CGFloat {
+//       let label =  UILabel(frame: CGRect(x: 0, y: 0, width: width, height: .greatestFiniteMagnitude))
+//       label.numberOfLines = numOfLine
+//       label.text = self
+//       label.font = font
+//       label.sizeToFit()
+//
+//       return label.frame.height
+//    }
     
     func localized() -> String{
         return NSLocalizedString(self, comment: "")
@@ -39,57 +39,57 @@ extension String {
     func localizedCapitalizedFirstCharacter() -> String{
         return NSLocalizedString(self, comment: "").capitalizingFirstLetter()
     }
-    
-    func widthOfString(usingFont font: UIFont) -> CGFloat {
-        let fontAttributes = [NSAttributedString.Key.font: font]
-        let size = self.size(withAttributes: fontAttributes)
-        return size.width
-    }
+//
+//    func widthOfString(usingFont font: UIFont) -> CGFloat {
+//        let fontAttributes = [NSAttributedString.Key.font: font]
+//        let size = self.size(withAttributes: fontAttributes)
+//        return size.width
+//    }
 }
 
-@IBDesignable
-class InsetLabel: UILabel {
-
-    @IBInspectable var topInset: CGFloat = 4.0
-    @IBInspectable var leftInset: CGFloat = 4.0
-    @IBInspectable var bottomInset: CGFloat = 4.0
-    @IBInspectable var rightInset: CGFloat = 4.0
-
-    var insets: UIEdgeInsets {
-        get {
-            return UIEdgeInsets.init(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
-        }
-        set {
-            topInset = newValue.top
-            leftInset = newValue.left
-            bottomInset = newValue.bottom
-            rightInset = newValue.right
-        }
-    }
-
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
-        var adjSize = super.sizeThatFits(size)
-        adjSize.width += leftInset + rightInset
-        adjSize.height += topInset + bottomInset
-        return adjSize
-    }
-
-    override var intrinsicContentSize: CGSize {
-        let systemContentSize = super.intrinsicContentSize
-        let adjustSize = CGSize(width: systemContentSize.width + leftInset + rightInset, height: systemContentSize.height + topInset +  bottomInset)
-        if adjustSize.width > preferredMaxLayoutWidth && preferredMaxLayoutWidth != 0 {
-            let constraintSize = CGSize(width: bounds.width - (leftInset + rightInset), height: .greatestFiniteMagnitude)
-            let newSize = super.sizeThatFits(constraintSize)
-            return CGSize(width: systemContentSize.width, height: ceil(newSize.height) + topInset + bottomInset)
-        } else {
-            return adjustSize
-        }
-    }
-
-    override func drawText(in rect: CGRect) {
-        super.drawText(in: rect.inset(by: insets))
-    }
-}
+//@IBDesignable
+//class InsetLabel: UILabel {
+//
+//    @IBInspectable var topInset: CGFloat = 4.0
+//    @IBInspectable var leftInset: CGFloat = 4.0
+//    @IBInspectable var bottomInset: CGFloat = 4.0
+//    @IBInspectable var rightInset: CGFloat = 4.0
+//
+//    var insets: UIEdgeInsets {
+//        get {
+//            return UIEdgeInsets.init(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+//        }
+//        set {
+//            topInset = newValue.top
+//            leftInset = newValue.left
+//            bottomInset = newValue.bottom
+//            rightInset = newValue.right
+//        }
+//    }
+//
+//    override func sizeThatFits(_ size: CGSize) -> CGSize {
+//        var adjSize = super.sizeThatFits(size)
+//        adjSize.width += leftInset + rightInset
+//        adjSize.height += topInset + bottomInset
+//        return adjSize
+//    }
+//
+//    override var intrinsicContentSize: CGSize {
+//        let systemContentSize = super.intrinsicContentSize
+//        let adjustSize = CGSize(width: systemContentSize.width + leftInset + rightInset, height: systemContentSize.height + topInset +  bottomInset)
+//        if adjustSize.width > preferredMaxLayoutWidth && preferredMaxLayoutWidth != 0 {
+//            let constraintSize = CGSize(width: bounds.width - (leftInset + rightInset), height: .greatestFiniteMagnitude)
+//            let newSize = super.sizeThatFits(constraintSize)
+//            return CGSize(width: systemContentSize.width, height: ceil(newSize.height) + topInset + bottomInset)
+//        } else {
+//            return adjustSize
+//        }
+//    }
+//
+//    override func drawText(in rect: CGRect) {
+//        super.drawText(in: rect.inset(by: insets))
+//    }
+//}
 
 extension String {
     var attributed: NSMutableAttributedString {
@@ -161,66 +161,66 @@ extension String {
     }
 
 
-    func lsImageUrl(preferredWidth: CGFloat) -> String {
-        let encodedUrlString = self.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? self
-        var components = URLComponents(string: encodedUrlString)
-        components?.query = "w=\(Int(preferredWidth))&fit=crop"
-
-        guard let url = components?.url else {
-            return self
-        }
-        return url.absoluteString
-    }
-
-
-    /// Convert HTML to attributed string
-    func decodeHtmlToAttributedString(minimumFontSize: CGFloat? = nil) -> NSMutableAttributedString? {
-        guard let stringData = self.data(using: .utf8) else { return nil }
-        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
-            .documentType: NSAttributedString.DocumentType.html.rawValue,
-            .characterEncoding: String.Encoding.utf8.rawValue
-        ]
-        var decodedAttributedString = try? NSMutableAttributedString(data: stringData, options: options, documentAttributes: nil)
-        if let mutableAttributedString = decodedAttributedString?.mutableCopy() as? NSMutableAttributedString {
-            // change font to local
-            mutableAttributedString.beginEditing()
-            let range = NSRange(location: 0, length: mutableAttributedString.length)
-            mutableAttributedString.enumerateAttribute(NSAttributedString.Key.font, in: range, options: []) { (value, range, stop) in
-                guard let oldFont = value as? UIFont else { return }
-
-                // remove attributed of old font
-                mutableAttributedString.removeAttribute(NSAttributedString.Key.font, range: range)
-
-                // replace with new attributed of new font
-                let localFont: UIFont
-                let fontSize = max(minimumFontSize ?? 0, oldFont.pointSize)
-                if oldFont.fontName == "TimesNewRomanPSMT" {
-                    localFont = UIFont.typeface(fontSize, style: .regular)
-
-                } else if oldFont.fontName == "TimesNewRomanPS-BoldMT" {
-                    localFont = UIFont.typeface(fontSize, style: .bold)
-
-                } else if oldFont.fontName == "TimesNewRomanPS-ItalicMT" {
-                    localFont = UIFont.typeface(fontSize, style: .light)
-
-                } else if oldFont.fontName == "TimesNewRomanPS-BoldItalicMT" {
-                    localFont = UIFont.typeface(fontSize, style: .medium)
-
-                } else {
-                    localFont = UIFont.typeface(fontSize, style: .regular)
-                }
-                mutableAttributedString.addAttribute(NSAttributedString.Key.font, value: localFont, range: range)
-            }
-            decodedAttributedString = mutableAttributedString
-        }
-        return decodedAttributedString
-    }
+//    func lsImageUrl(preferredWidth: CGFloat) -> String {
+//        let encodedUrlString = self.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? self
+//        var components = URLComponents(string: encodedUrlString)
+//        components?.query = "w=\(Int(preferredWidth))&fit=crop"
+//
+//        guard let url = components?.url else {
+//            return self
+//        }
+//        return url.absoluteString
+//    }
 
 
-    /// Converts HTML to plain text
-    func decodeHTML() -> String {
-        return decodeHtmlToAttributedString()?.string ?? self
-    }
+//    /// Convert HTML to attributed string
+//    func decodeHtmlToAttributedString(minimumFontSize: CGFloat? = nil) -> NSMutableAttributedString? {
+//        guard let stringData = self.data(using: .utf8) else { return nil }
+//        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+//            .documentType: NSAttributedString.DocumentType.html.rawValue,
+//            .characterEncoding: String.Encoding.utf8.rawValue
+//        ]
+//        var decodedAttributedString = try? NSMutableAttributedString(data: stringData, options: options, documentAttributes: nil)
+//        if let mutableAttributedString = decodedAttributedString?.mutableCopy() as? NSMutableAttributedString {
+//            // change font to local
+//            mutableAttributedString.beginEditing()
+//            let range = NSRange(location: 0, length: mutableAttributedString.length)
+//            mutableAttributedString.enumerateAttribute(NSAttributedString.Key.font, in: range, options: []) { (value, range, stop) in
+//                guard let oldFont = value as? UIFont else { return }
+//
+//                // remove attributed of old font
+//                mutableAttributedString.removeAttribute(NSAttributedString.Key.font, range: range)
+//
+//                // replace with new attributed of new font
+//                let localFont: UIFont
+//                let fontSize = max(minimumFontSize ?? 0, oldFont.pointSize)
+//                if oldFont.fontName == "TimesNewRomanPSMT" {
+//                    localFont = UIFont.typeface(fontSize, style: .regular)
+//
+//                } else if oldFont.fontName == "TimesNewRomanPS-BoldMT" {
+//                    localFont = UIFont.typeface(fontSize, style: .bold)
+//
+//                } else if oldFont.fontName == "TimesNewRomanPS-ItalicMT" {
+//                    localFont = UIFont.typeface(fontSize, style: .light)
+//
+//                } else if oldFont.fontName == "TimesNewRomanPS-BoldItalicMT" {
+//                    localFont = UIFont.typeface(fontSize, style: .medium)
+//
+//                } else {
+//                    localFont = UIFont.typeface(fontSize, style: .regular)
+//                }
+//                mutableAttributedString.addAttribute(NSAttributedString.Key.font, value: localFont, range: range)
+//            }
+//            decodedAttributedString = mutableAttributedString
+//        }
+//        return decodedAttributedString
+//    }
+
+
+//    /// Converts HTML to plain text
+//    func decodeHTML() -> String {
+//        return decodeHtmlToAttributedString()?.string ?? self
+//    }
 
 
     /// Converts date to string with specific format
@@ -254,10 +254,10 @@ extension String {
     }
 
 
-    func sizeWith(font: UIFont) -> CGSize {
-        let str = self as NSString
-        return str.size(withAttributes: [NSAttributedString.Key.font: font])
-    }
+//    func sizeWith(font: UIFont) -> CGSize {
+//        let str = self as NSString
+//        return str.size(withAttributes: [NSAttributedString.Key.font: font])
+//    }
 
 
     /// Compares versions
@@ -337,26 +337,26 @@ extension String {
         return Double(self) ?? 0
     }
     
-    var cgFloat: CGFloat {
-        return Double(self)?.cgFloat ?? 0
-    }
-    
-    var int: Int {
-        return Int(self) ?? 0
-    }
-    
-    var bool: Bool? {
-        switch self.lowercased() {
-        case "true", "t", "yes", "y", "1":
-            return true
-            
-        case "false", "f", "no", "n", "0":
-            return false
-            
-        default:
-            return nil
-        }
-    }
+//    var cgFloat: CGFloat {
+//        return Double(self)?.cgFloat ?? 0
+//    }
+//
+//    var int: Int {
+//        return Int(self) ?? 0
+//    }
+//
+//    var bool: Bool? {
+//        switch self.lowercased() {
+//        case "true", "t", "yes", "y", "1":
+//            return true
+//
+//        case "false", "f", "no", "n", "0":
+//            return false
+//
+//        default:
+//            return nil
+//        }
+//    }
 }
 
 

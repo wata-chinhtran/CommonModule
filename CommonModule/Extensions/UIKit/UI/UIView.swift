@@ -46,27 +46,27 @@ extension UIView {
     }
     
     
-    func addTo(view: UIView) -> UIView {
-        view.addSubview(self)
-        return self
-    }
-    
-    func addToView(_ view: UIView) {
-        view.addSubview(self)
-    }
-    
-    func applyShadow(
-        offset: CGSize,
-        opacity: Float,
-        blur: CGFloat = 2,
-        shadowColor: UIColor = UIColor(rgb: 0xB8B8B8)
-    ) {
-        layer.masksToBounds = false
-        layer.shadowOffset = offset
-        layer.shadowRadius = blur
-        layer.shadowOpacity = opacity
-        layer.shadowColor = shadowColor.cgColor
-    }
+//    func addTo(view: UIView) -> UIView {
+//        view.addSubview(self)
+//        return self
+//    }
+//
+//    func addToView(_ view: UIView) {
+//        view.addSubview(self)
+//    }
+//
+//    func applyShadow(
+//        offset: CGSize,
+//        opacity: Float,
+//        blur: CGFloat = 2,
+//        shadowColor: UIColor = UIColor(rgb: 0xB8B8B8)
+//    ) {
+//        layer.masksToBounds = false
+//        layer.shadowOffset = offset
+//        layer.shadowRadius = blur
+//        layer.shadowOpacity = opacity
+//        layer.shadowColor = shadowColor.cgColor
+//    }
     
     func applyBorder(width: CGFloat, color: UIColor) {
         layer.masksToBounds = true
@@ -84,32 +84,32 @@ extension UIView {
         self.layer.addSublayer(borderLayout)
     }
     
-    /// Mark subview as constraint-able and add as subview.
-    ///
-    /// - Parameter subview: Subview.
-    func add(_ subview: UIView) {
-        subview.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(subview)
-    }
-    
-    func showSideMenu(_ isShow: Bool, duration: Double, headerView: HeaderView) {
-        let frameX: CGFloat = 0.0
-        let rootViewScale: CGFloat = isShow ? kScaleScreenPercent : 1.0
-        
-        let scale = CGAffineTransform(scaleX: rootViewScale, y: rootViewScale)
-        let translate = CGAffineTransform(translationX: frameX, y: 0.0)
-        
-        UIView.animate(withDuration: duration) {
-            
-            if DeviceHelper.isPhoneX{
-                headerView.heightConstraintOfTopView.constant = isShow ? 0:44
-                headerView.layoutIfNeeded()
-            }
-            
-            headerView.frame = CGRect(x: 0, y: 0, width: headerView.frame.size.width, height: headerView.frame.size.height + (isShow ? -DeviceHelper.topSafeAreaHeight : DeviceHelper.topSafeAreaHeight))
-            self.transform = scale.concatenating(translate)
-        }
-    }
+//    /// Mark subview as constraint-able and add as subview.
+//    ///
+//    /// - Parameter subview: Subview.
+//    func add(_ subview: UIView) {
+//        subview.translatesAutoresizingMaskIntoConstraints = false
+//        self.addSubview(subview)
+//    }
+//
+//    func showSideMenu(_ isShow: Bool, duration: Double, headerView: HeaderView) {
+//        let frameX: CGFloat = 0.0
+//        let rootViewScale: CGFloat = isShow ? kScaleScreenPercent : 1.0
+//
+//        let scale = CGAffineTransform(scaleX: rootViewScale, y: rootViewScale)
+//        let translate = CGAffineTransform(translationX: frameX, y: 0.0)
+//
+//        UIView.animate(withDuration: duration) {
+//
+//            if DeviceHelper.isPhoneX{
+//                headerView.heightConstraintOfTopView.constant = isShow ? 0:44
+//                headerView.layoutIfNeeded()
+//            }
+//
+//            headerView.frame = CGRect(x: 0, y: 0, width: headerView.frame.size.width, height: headerView.frame.size.height + (isShow ? -DeviceHelper.topSafeAreaHeight : DeviceHelper.topSafeAreaHeight))
+//            self.transform = scale.concatenating(translate)
+//        }
+//    }
 }
 
 // MARK: - Design
@@ -149,26 +149,23 @@ extension UIView {
     }
 }
 
-extension UIView {
-    /// calculate frame of view in the main window
-    var originFrame: CGRect {
-        return self.superview?.convert(self.frame, to: nil) ?? self.frame
-    }
-    
-    /// get scroll view that contains this view
-    func rootScrollView() -> UIScrollView? {
-        guard let view = self.superview else { return nil }
-        
-        if let scrollView = view as? UIScrollView {
-            return scrollView
-        }
-        return view.rootScrollView()
-    }
-    
-}
-
-
-
+//extension UIView {
+//    /// calculate frame of view in the main window
+//    var originFrame: CGRect {
+//        return self.superview?.convert(self.frame, to: nil) ?? self.frame
+//    }
+//
+//    /// get scroll view that contains this view
+//    func rootScrollView() -> UIScrollView? {
+//        guard let view = self.superview else { return nil }
+//
+//        if let scrollView = view as? UIScrollView {
+//            return scrollView
+//        }
+//        return view.rootScrollView()
+//    }
+//
+//}
 
 extension UIView {
     func dropShadow(scale: Bool = true) {
@@ -201,11 +198,11 @@ extension UIView {
         self.clipsToBounds = true
     }
     
-    func madeShadowHasRadius(color: UIColor = .black, alpha: Float = 0.1,
-                             x: CGFloat = 0, y: CGFloat = 4, blur: CGFloat = 16, spread: CGFloat = 0, radius: CGFloat = kButtonCorner) {
-        cornerRadiusWithShadow(radius: radius)
-        layer.applySketchShadow(color: color, alpha: alpha, x: x, y: y, blur: blur, spread: spread)
-    }
+//    func madeShadowHasRadius(color: UIColor = .black, alpha: Float = 0.1,
+//                             x: CGFloat = 0, y: CGFloat = 4, blur: CGFloat = 16, spread: CGFloat = 0, radius: CGFloat = kButtonCorner) {
+//        cornerRadiusWithShadow(radius: radius)
+//        layer.applySketchShadow(color: color, alpha: alpha, x: x, y: y, blur: blur, spread: spread)
+//    }
     
     func roundCorners(corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
@@ -238,38 +235,38 @@ extension UIColor{
     
 }
 
-@IBDesignable
-public class CommonGradient: UIView {
-    @IBInspectable var startColor:   UIColor = ColorManager.shared.startBGGradientColor { didSet { updateColors() }}
-    @IBInspectable var endColor:     UIColor = ColorManager.shared.endBGGradientColor { didSet { updateColors() }}
-    @IBInspectable var startLocation: Double =   0.05 { didSet { updateLocations() }}
-    @IBInspectable var endLocation:   Double =   0.95 { didSet { updateLocations() }}
-    @IBInspectable var horizontalMode:  Bool =  false { didSet { updatePoints() }}
-    @IBInspectable var diagonalMode:    Bool =  false { didSet { updatePoints() }}
-    
-    override public class var layerClass: AnyClass { CAGradientLayer.self }
-    
-    var gradientLayer: CAGradientLayer { layer as! CAGradientLayer }
-    
-    func updatePoints() {
-        if horizontalMode {
-            gradientLayer.startPoint = diagonalMode ? .init(x: 1, y: 0) : .init(x: 0, y: 0.5)
-            gradientLayer.endPoint   = diagonalMode ? .init(x: 0, y: 1) : .init(x: 1, y: 0.5)
-        } else {
-            gradientLayer.startPoint = diagonalMode ? .init(x: 0, y: 0) : .init(x: 0.5, y: 0)
-            gradientLayer.endPoint   = diagonalMode ? .init(x: 1, y: 1) : .init(x: 0.5, y: 1)
-        }
-    }
-    func updateLocations() {
-        gradientLayer.locations = [startLocation as NSNumber, endLocation as NSNumber]
-    }
-    func updateColors() {
-        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
-    }
-    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        updatePoints()
-        updateLocations()
-        updateColors()
-    }
-}
+//@IBDesignable
+//public class CommonGradient: UIView {
+//    @IBInspectable var startColor:   UIColor = ColorManager.shared.startBGGradientColor { didSet { updateColors() }}
+//    @IBInspectable var endColor:     UIColor = ColorManager.shared.endBGGradientColor { didSet { updateColors() }}
+//    @IBInspectable var startLocation: Double =   0.05 { didSet { updateLocations() }}
+//    @IBInspectable var endLocation:   Double =   0.95 { didSet { updateLocations() }}
+//    @IBInspectable var horizontalMode:  Bool =  false { didSet { updatePoints() }}
+//    @IBInspectable var diagonalMode:    Bool =  false { didSet { updatePoints() }}
+//
+//    override public class var layerClass: AnyClass { CAGradientLayer.self }
+//
+//    var gradientLayer: CAGradientLayer { layer as! CAGradientLayer }
+//
+//    func updatePoints() {
+//        if horizontalMode {
+//            gradientLayer.startPoint = diagonalMode ? .init(x: 1, y: 0) : .init(x: 0, y: 0.5)
+//            gradientLayer.endPoint   = diagonalMode ? .init(x: 0, y: 1) : .init(x: 1, y: 0.5)
+//        } else {
+//            gradientLayer.startPoint = diagonalMode ? .init(x: 0, y: 0) : .init(x: 0.5, y: 0)
+//            gradientLayer.endPoint   = diagonalMode ? .init(x: 1, y: 1) : .init(x: 0.5, y: 1)
+//        }
+//    }
+//    func updateLocations() {
+//        gradientLayer.locations = [startLocation as NSNumber, endLocation as NSNumber]
+//    }
+//    func updateColors() {
+//        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+//    }
+//    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        super.traitCollectionDidChange(previousTraitCollection)
+//        updatePoints()
+//        updateLocations()
+//        updateColors()
+//    }
+//}
