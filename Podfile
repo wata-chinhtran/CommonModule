@@ -7,9 +7,7 @@ target 'UseCommonModuleSample' do
   use_frameworks!
 
   # Pods for UseCommonModuleSample
-  
   pod 'Moya'
-  pod 'Kingfisher'
 
 end
 
@@ -19,6 +17,5 @@ target 'CommonModule' do
 
   # Pods for DINetworking
   pod 'Moya'
-  
 
 end
