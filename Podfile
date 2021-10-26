@@ -18,5 +18,7 @@ target 'CommonModule' do
   # Pods for DINetworking
   pod 'Moya'
   pod 'Kingfisher'
+  pod 'NVActivityIndicatorView'
+  pod 'SnapKit'
 
 end
