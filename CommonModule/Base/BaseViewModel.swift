@@ -1,7 +1,7 @@
 
 import UIKit
 
-class BaseViewModelImplement: NSObject {
+public class BaseViewModelImplement: NSObject {
     override init() {
         super.init()
     }

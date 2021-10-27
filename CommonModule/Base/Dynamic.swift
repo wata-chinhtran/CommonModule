@@ -2,7 +2,7 @@
 
 import Foundation
 
-class Dynamic<T>: NSObject {
+public class Dynamic<T>: NSObject {
     typealias Listener = (T) -> ()
     var listener: Listener?
     

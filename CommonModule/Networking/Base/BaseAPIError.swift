@@ -50,7 +50,7 @@ public enum BaseAPIError: Error {
     }
 }
 
-struct LSErrorResponse: Codable {
+public struct LSErrorResponse: Codable {
     let message: String?
     let errors: [String: [String]]?
     let code: Int?

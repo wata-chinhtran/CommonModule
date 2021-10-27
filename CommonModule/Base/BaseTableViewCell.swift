@@ -2,7 +2,7 @@
 
 import UIKit
 
-class BaseTableViewCell: UITableViewCell {
+public class BaseTableViewCell: UITableViewCell {
     
     // MARK: Properties
     
@@ -33,7 +33,7 @@ class BaseTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         
         // Draw line layer if needed
@@ -55,7 +55,7 @@ class BaseTableViewCell: UITableViewCell {
         }
     }
     
-    override func layoutSubviews() {
+ public override func layoutSubviews() {
         super.layoutSubviews()
         self.updateLines()
     }
