@@ -5,9 +5,9 @@
 import Foundation
 
 /// Binding data
-public class Variable<T> {
+open class Variable<T> {
     typealias Listener = (T) -> Void
-    private var listeners: [Listener] = []
+     var listeners: [Listener] = []
 
     /// The value
     var value: T {
