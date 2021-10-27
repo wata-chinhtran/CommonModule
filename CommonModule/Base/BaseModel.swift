@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct BaseModel: Codable, PropertyNames {
+public struct BaseModel: Codable, PropertyNames {
     var id: String = ""
 }
 
@@ -16,7 +16,7 @@ extension PropertyNames
     }
 }
 
-struct LSResponse<T: Codable> {
+public struct LSResponse<T: Codable> {
     let data: T?
     let error: LSErrorResponse?
 }
