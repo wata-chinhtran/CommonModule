@@ -163,6 +163,36 @@ public extension UIViewController {
     static func instance() -> Self {
         return genericInstance()
     }
+    
+    // show TOAST
+    func showToast(message: String, font: UIFont = .systemFont(ofSize: 14), duration: TimeInterval = ToastManager.shared.duration, completion: ((_ didTap: Bool) -> Void)? = nil) {
+        
+        var style = ToastStyle()
+        style.messageColor = .white
+        style.cornerRadius = 4
+        style.verticalPadding = 16
+        style.horizontalPadding = 16
+        style.messageFont = font
+        style.displayShadow = true
+        style.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        style.shadowOpacity = 0.24
+        style.shadowRadius = 8
+        style.shadowOffset = CGSize(width: 0, height: 0)
+        style.titleAlignment = .center
+        style.messageAlignment = .center
+        style.backgroundColor = UIColor(hexString: "353535")!
+        ToastManager.shared.style = style
+        ToastManager.shared.isTapToDismissEnabled = true
+
+        if let completion = completion {
+            self.view.makeToast(message, duration: duration, completion: {(finish) in
+                completion(finish)
+            })
+        } else {
+            self.view.makeToast(message, duration: duration)
+        }
+        
+    }
 
 }
 
