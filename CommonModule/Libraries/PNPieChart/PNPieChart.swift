@@ -233,10 +233,10 @@ extension PNPieChart {
         descriptionLabel.textColor = descriptionTextColor
         descriptionLabel.textAlignment = .center
         
-        if showTextShadow! {
-            descriptionLabel.shadowColor = descriptionTextShadowColor
-            descriptionLabel.shadowOffset = descriptionTextShadowOffset
-        }
+//        if showTextShadow! {
+//            descriptionLabel.shadowColor = descriptionTextShadowColor
+//            descriptionLabel.shadowOffset = descriptionTextShadowOffset
+//        }
         
         descriptionLabel.center = center
         descriptionLabel.alpha = 1

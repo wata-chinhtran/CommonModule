@@ -62,41 +62,41 @@ extension Date {
         self = dateFormatter.date(from: string) ?? Date()
     }
     
-    func isComparedWithDay(_ compareDate: Date) -> CompareDateType{
-        let mineComponents = NSCalendar.current.dateComponents([.day, .month, .year], from: self)
-        let otherComponents = NSCalendar.current.dateComponents([.day, .month, .year], from: compareDate)
-  
-        let mineYear = mineComponents.year ?? 0
-        let otherYear = otherComponents.year ?? 0
-        
-        if(mineYear == otherYear) {
-            let mineMonth = mineComponents.month ?? 0
-            let otherMonth = otherComponents.month ?? 0
-            
-            if(mineMonth == otherMonth) {
-                let mineDay = mineComponents.day ?? 0
-                let otherDay = otherComponents.day ?? 0
-                
-                if(mineDay == otherDay) {
-                    return .DATE_IS_TODAY
-                    
-                } else {
-                    return ((mineDay > otherDay) ? .DATE_IS_FUTURE : .DATE_IS_PAST)
-                }
-                
-            } else {
-                return ((mineMonth > otherMonth) ? .DATE_IS_FUTURE : .DATE_IS_PAST)
-            }
-            
-        } else {
-            return ((mineYear > otherYear) ? .DATE_IS_FUTURE : .DATE_IS_PAST)
-        }
-    }
-    
-    public func isSameWith(_ date: Date?) -> Bool {
-        let delta = Double(abs(Float(timeIntervalSince1970 - (date?.timeIntervalSince1970 ?? 0.0))))
-        return delta <= kMilisecondsPerDay
-    }
+//    func isComparedWithDay(_ compareDate: Date) -> CompareDateType{
+//        let mineComponents = NSCalendar.current.dateComponents([.day, .month, .year], from: self)
+//        let otherComponents = NSCalendar.current.dateComponents([.day, .month, .year], from: compareDate)
+//  
+//        let mineYear = mineComponents.year ?? 0
+//        let otherYear = otherComponents.year ?? 0
+//        
+//        if(mineYear == otherYear) {
+//            let mineMonth = mineComponents.month ?? 0
+//            let otherMonth = otherComponents.month ?? 0
+//            
+//            if(mineMonth == otherMonth) {
+//                let mineDay = mineComponents.day ?? 0
+//                let otherDay = otherComponents.day ?? 0
+//                
+//                if(mineDay == otherDay) {
+//                    return .DATE_IS_TODAY
+//                    
+//                } else {
+//                    return ((mineDay > otherDay) ? .DATE_IS_FUTURE : .DATE_IS_PAST)
+//                }
+//                
+//            } else {
+//                return ((mineMonth > otherMonth) ? .DATE_IS_FUTURE : .DATE_IS_PAST)
+//            }
+//            
+//        } else {
+//            return ((mineYear > otherYear) ? .DATE_IS_FUTURE : .DATE_IS_PAST)
+//        }
+//    }
+//    
+//    public func isSameWith(_ date: Date?) -> Bool {
+//        let delta = Double(abs(Float(timeIntervalSince1970 - (date?.timeIntervalSince1970 ?? 0.0))))
+//        return delta <= kMilisecondsPerDay
+//    }
     
     func roundDateThirtyInerval() -> Date {
         var mineComponents = NSCalendar.current.dateComponents([.day, .month, .year, .hour, .minute, .second], from: self)

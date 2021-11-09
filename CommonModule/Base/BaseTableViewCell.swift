@@ -2,7 +2,7 @@
 
 import UIKit
 
-class BaseTableViewCell: UITableViewCell {
+public class BaseTableViewCell: UITableViewCell {
     
     // MARK: Properties
     
@@ -33,14 +33,14 @@ class BaseTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         
         // Draw line layer if needed
         if self.shouldDrawBottomLine && self.bottomLineLayer == nil {
             
             let bottomLineLayer = CALayer()
-            bottomLineLayer.backgroundColor = self.botLineColor.cgColor
+            //bottomLineLayer.backgroundColor = self.botLineColor.cgColor
             self.layer.addSublayer(bottomLineLayer)
             self.bottomLineLayer = bottomLineLayer
         }
@@ -49,13 +49,13 @@ class BaseTableViewCell: UITableViewCell {
         if self.shouldDrawTopLine && self.topLineLayer == nil {
             
             let topLineLayer = CALayer()
-            topLineLayer.backgroundColor = self.topLineColor.cgColor
+            //topLineLayer.backgroundColor = self.topLineColor.cgColor
             self.layer.addSublayer(topLineLayer)
             self.topLineLayer = topLineLayer
         }
     }
     
-    override func layoutSubviews() {
+ public override func layoutSubviews() {
         super.layoutSubviews()
         self.updateLines()
     }
@@ -63,13 +63,13 @@ class BaseTableViewCell: UITableViewCell {
     
     // MARK: Line attributes
     
-    var topLineColor: UIColor {
-        return .separatorLine
-    }
-    
-    var botLineColor: UIColor {
-        return .separatorLine
-    }
+//    var topLineColor: UIColor {
+//        return .separatorLine
+//    }
+//    
+//    var botLineColor: UIColor {
+//        return .separatorLine
+//    }
     
     func updateLines() {
         self.bottomLineLayer?.frame = self.bottomLineFrame
@@ -99,7 +99,7 @@ class BaseTableViewCell: UITableViewCell {
         if self.topLineLayer == nil {
             let topLineLayer = CALayer()
             topLineLayer.opacity = 0
-            topLineLayer.backgroundColor = self.topLineColor.cgColor
+            //topLineLayer.backgroundColor = self.topLineColor.cgColor
             self.layer.addSublayer(topLineLayer)
             self.topLineLayer = topLineLayer
         }

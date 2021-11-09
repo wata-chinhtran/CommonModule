@@ -1,58 +1,56 @@
-
-
 import Foundation
 
 extension NSMutableAttributedString {
-    @discardableResult
-    func font(font: UIFont, range rng: NSRange? = nil) -> NSMutableAttributedString {
-        let range = rng == nil ? (string as NSString).range(of: string) : rng!
-        self.addAttributes([NSAttributedString.Key.font: font], range: range)
-        return self
-    }
-
-
-    @discardableResult
-    func textColor(color: UIColor, range rng: NSRange? = nil) -> NSMutableAttributedString {
-        let range = rng == nil ? (string as NSString).range(of: string) : rng!
-        self.addAttributes([NSAttributedString.Key.foregroundColor: color], range: range)
-        return self
-    }
-
-
-    @discardableResult
-    func paragraph(style: (() -> NSParagraphStyle), range rng: NSRange? = nil) -> NSMutableAttributedString {
-        let range = rng == nil ? (string as NSString).range(of: string) : rng!
-        self.addAttributes([NSAttributedString.Key.paragraphStyle: style()], range: range)
-        return self
-    }
-
-
-    @discardableResult
-    func backgroundColor(color: UIColor, range rng: NSRange? = nil) -> NSMutableAttributedString {
-        let range = rng == nil ? (string as NSString).range(of: string) : rng!
-        self.addAttributes([NSAttributedString.Key.backgroundColor: color], range: range)
-        return self
-    }
-
-
-    @discardableResult
-    func strikeThrough(excludeWhiteSpace: Bool = false) -> NSMutableAttributedString {
-        for (index, item) in self.string.enumerated() {
-
-            guard item.description != " " || !excludeWhiteSpace else {
-                let spaceRange = NSRange(location: index, length: 1)
-                let style = 0
-                self.addAttributes([NSAttributedString.Key.strikethroughStyle: style], range: spaceRange)
-                continue
-            }
-
-            let spaceRange = NSRange(location: index, length: 1)
-            let style = NSUnderlineStyle.single.rawValue
-            self.addAttributes([NSAttributedString.Key.strikethroughStyle: style], range: spaceRange)
-        }
-
-        return self
-    }
+//    @discardableResult
+//    func font(font: UIFont, range rng: NSRange? = nil) -> NSMutableAttributedString {
+//        let range = rng == nil ? (string as NSString).range(of: string) : rng!
+//        self.addAttributes([NSAttributedString.Key.font: font], range: range)
+//        return self
+//    }
+//
+//
+//    @discardableResult
+//    func textColor(color: UIColor, range rng: NSRange? = nil) -> NSMutableAttributedString {
+//        let range = rng == nil ? (string as NSString).range(of: string) : rng!
+//        self.addAttributes([NSAttributedString.Key.foregroundColor: color], range: range)
+//        return self
+//    }
+//
+//
+//    @discardableResult
+//    func paragraph(style: (() -> NSParagraphStyle), range rng: NSRange? = nil) -> NSMutableAttributedString {
+//        let range = rng == nil ? (string as NSString).range(of: string) : rng!
+//        self.addAttributes([NSAttributedString.Key.paragraphStyle: style()], range: range)
+//        return self
+//    }
+//
+//
+//    @discardableResult
+//    func backgroundColor(color: UIColor, range rng: NSRange? = nil) -> NSMutableAttributedString {
+//        let range = rng == nil ? (string as NSString).range(of: string) : rng!
+//        self.addAttributes([NSAttributedString.Key.backgroundColor: color], range: range)
+//        return self
+//    }
+//
+//
+//    @discardableResult
+//    func strikeThrough(excludeWhiteSpace: Bool = false) -> NSMutableAttributedString {
+//        for (index, item) in self.string.enumerated() {
+//
+//            guard item.description != " " || !excludeWhiteSpace else {
+//                let spaceRange = NSRange(location: index, length: 1)
+//                let style = 0
+//                self.addAttributes([NSAttributedString.Key.strikethroughStyle: style], range: spaceRange)
+//                continue
+//            }
+//
+//            let spaceRange = NSRange(location: index, length: 1)
+//            let style = NSUnderlineStyle.single.rawValue
+//            self.addAttributes([NSAttributedString.Key.strikethroughStyle: style], range: spaceRange)
+//        }
+//
+//        return self
+//    }
 
     func clearStyleOnSpace() -> NSMutableAttributedString {
         var range = (string as NSString).range(of: string)
@@ -92,21 +90,21 @@ extension NSMutableAttributedString {
     }
 
 
-    @discardableResult
-    func underline(range rng: NSRange? = nil) -> NSMutableAttributedString {
-        let range = rng == nil ? (string as NSString).range(of: string) : rng!
-        self.addAttributes([NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue], range: range)
-        return self
-    }
-
-
-    @discardableResult
-    func lineSpace(_ space: CGFloat) -> NSMutableAttributedString {
-        self.paragraph(style: { () -> NSParagraphStyle in
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = space
-            return paragraphStyle
-        })
-        return self
-    }
+//    @discardableResult
+//    func underline(range rng: NSRange? = nil) -> NSMutableAttributedString {
+//        let range = rng == nil ? (string as NSString).range(of: string) : rng!
+//        self.addAttributes([NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue], range: range)
+//        return self
+//    }
+//
+//
+//    @discardableResult
+//    func lineSpace(_ space: CGFloat) -> NSMutableAttributedString {
+//        self.paragraph(style: { () -> NSParagraphStyle in
+//            let paragraphStyle = NSMutableParagraphStyle()
+//            paragraphStyle.lineSpacing = space
+//            return paragraphStyle
+//        })
+//        return self
+//    }
 }

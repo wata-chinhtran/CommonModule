@@ -45,7 +45,7 @@ class TableWithCustomIndexTitleView: UIView {
         contentView.translatesAutoresizingMaskIntoConstraints = true
         contentView.backgroundColor = .clear
         addSubview(contentView)
-        commonInit()
+        //commonInit()
     }
     
     private func loadViewFromNib() -> UIView {
@@ -56,19 +56,19 @@ class TableWithCustomIndexTitleView: UIView {
         return nibView
     }
     
-    func commonInit() {
-        indexTitleListView.backgroundColor = .clear
-        indexTitleListView.register(CharacterCollectionViewCell.reuseIdentifier)
-        indexTitleListView.delegate = self
-        indexTitleListView.dataSource = self
-        
-        contentListView.backgroundColor = .clear
-        contentListView.delegate = self
-        contentListView.dataSource = self
-        // add pan gesture for alphabet collectionview
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-        indexTitleListView.addGestureRecognizer(panGesture)
-    }
+//    func commonInit() {
+//        indexTitleListView.backgroundColor = .clear
+//        indexTitleListView.register(CharacterCollectionViewCell.reuseIdentifier)
+//        indexTitleListView.delegate = self
+//        indexTitleListView.dataSource = self
+//
+//        contentListView.backgroundColor = .clear
+//        contentListView.delegate = self
+//        contentListView.dataSource = self
+//        // add pan gesture for alphabet collectionview
+//        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+//        indexTitleListView.addGestureRecognizer(panGesture)
+//    }
     
     func registerCell(_ cellName: String) {
         contentListView.register(cellName)
@@ -80,23 +80,23 @@ class TableWithCustomIndexTitleView: UIView {
         contentListView.reloadData()
     }
     
-    @objc func handleSwipe(sender: UIPanGestureRecognizer){
-        if sender.state == .changed {
-            let touchPoint = sender.location(in: indexTitleListView)
-            if let indexPath = indexTitleListView.indexPathForItem(at: touchPoint) {
-                let newIndexPath = IndexPath(row: NSNotFound, section: indexPath.item)
-                if currentIndexPath != newIndexPath {
-                    currentIndexPath = newIndexPath
-                    contentListView.scrollToRow(at: newIndexPath, at: .none, animated: true)
-                    if let oldCell = indexTitleListView.cellForItem(at: IndexPath(item: currentIndexSelected, section: 0)) as? CharacterCollectionViewCell, let newCell = indexTitleListView.cellForItem(at: indexPath) as? CharacterCollectionViewCell {
-                        oldCell.lblCharacter.textColor = .lightGray
-                        newCell.lblCharacter.textColor = .darkText
-                    }
-                    currentIndexSelected = indexPath.item
-                }
-            }
-        }
-    }
+//    @objc func handleSwipe(sender: UIPanGestureRecognizer){
+//        if sender.state == .changed {
+//            let touchPoint = sender.location(in: indexTitleListView)
+//            if let indexPath = indexTitleListView.indexPathForItem(at: touchPoint) {
+//                let newIndexPath = IndexPath(row: NSNotFound, section: indexPath.item)
+//                if currentIndexPath != newIndexPath {
+//                    currentIndexPath = newIndexPath
+//                    contentListView.scrollToRow(at: newIndexPath, at: .none, animated: true)
+//                    if let oldCell = indexTitleListView.cellForItem(at: IndexPath(item: currentIndexSelected, section: 0)) as? CharacterCollectionViewCell, let newCell = indexTitleListView.cellForItem(at: indexPath) as? CharacterCollectionViewCell {
+//                        oldCell.lblCharacter.textColor = .lightGray
+//                        newCell.lblCharacter.textColor = .darkText
+//                    }
+//                    currentIndexSelected = indexPath.item
+//                }
+//            }
+//        }
+//    }
 }
 
 // MARK: - CollectionView
@@ -105,19 +105,24 @@ extension TableWithCustomIndexTitleView: UICollectionViewDelegate, UICollectionV
         return dataSource?.sectionIndexTitles()?.count ?? 0
     }
     
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.reuseIdentifier, for: indexPath) as! CharacterCollectionViewCell
+//        var character = dataSource?.sectionIndexTitles()?[indexPath.item].uppercased()
+//        if character == "." {
+//            character = "•"
+//        }
+//        cell.lblCharacter.text = character
+//        cell.backgroundColor = .clear
+//        if currentIndexSelected == indexPath.item {
+//            cell.lblCharacter.textColor = .darkText
+//        } else {
+//            cell.lblCharacter.textColor = .lightGray
+//        }
+//        return cell
+//    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.reuseIdentifier, for: indexPath) as! CharacterCollectionViewCell
-        var character = dataSource?.sectionIndexTitles()?[indexPath.item].uppercased()
-        if character == "." {
-            character = "•"
-        }
-        cell.lblCharacter.text = character
-        cell.backgroundColor = .clear
-        if currentIndexSelected == indexPath.item {
-            cell.lblCharacter.textColor = .darkText
-        } else {
-            cell.lblCharacter.textColor = .lightGray
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.reuseIdentifier, for: indexPath)
         return cell
     }
     
@@ -129,21 +134,21 @@ extension TableWithCustomIndexTitleView: UICollectionViewDelegate, UICollectionV
         return 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        // reset color of list alphabet
-        if let oldCell = collectionView.cellForItem(at: IndexPath(item: currentIndexSelected, section: 0)) as? CharacterCollectionViewCell, let newCell = collectionView.cellForItem(at: indexPath) as? CharacterCollectionViewCell {
-            oldCell.lblCharacter.textColor = .lightGray
-            newCell.lblCharacter.textColor = .darkText
-        }
-        
-        // reset current index
-        currentIndexSelected = indexPath.item
-        
-        // scroll tableview to new index
-        let sectionIndexPath = IndexPath(row: NSNotFound, section: indexPath.item)
-        contentListView.scrollToRow(at: sectionIndexPath, at: .top, animated: true)
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//
+//        // reset color of list alphabet
+//        if let oldCell = collectionView.cellForItem(at: IndexPath(item: currentIndexSelected, section: 0)) as? CharacterCollectionViewCell, let newCell = collectionView.cellForItem(at: indexPath) as? CharacterCollectionViewCell {
+//            oldCell.lblCharacter.textColor = .lightGray
+//            newCell.lblCharacter.textColor = .darkText
+//        }
+//
+//        // reset current index
+//        currentIndexSelected = indexPath.item
+//
+//        // scroll tableview to new index
+//        let sectionIndexPath = IndexPath(row: NSNotFound, section: indexPath.item)
+//        contentListView.scrollToRow(at: sectionIndexPath, at: .top, animated: true)
+//    }
 }
 
 
