@@ -17,7 +17,6 @@
 		4DAA9B7226BCFD5300513025 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DAA9B7026BCFD5300513025 /* LaunchScreen.storyboard */; };
 		4DAA9B7D26BCFD5300513025 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA9B7C26BCFD5300513025 /* ExampleTests.swift */; };
 		4DAA9B8826BCFD5300513025 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA9B8726BCFD5300513025 /* ExampleUITests.swift */; };
-		84647877273A5FB3005E461F /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84647876273A5FB3005E461F /* Toast.swift */; };
 		E946C407902762DF3CC9D6C6 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2EBA62CEAC51D11D6199C33 /* Pods_Example.framework */; };
 		FF3C0DE72721982D0032F94C /* Ext+CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3C0DE62721982C0032F94C /* Ext+CGRect.swift */; };
 		FFB0721327217D490070BA46 /* VINScannerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB0713927217D460070BA46 /* VINScannerVC.m */; };
@@ -246,7 +245,6 @@
 		4DAA9B8726BCFD5300513025 /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
 		4DAA9B8926BCFD5300513025 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61DE1C05EA945299A2DFC755 /* Pods_CommonModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84647876273A5FB3005E461F /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		86EFD7226693C76CD46B2F02 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		958BCEC2D3A316714109CEEB /* Pods-CommonModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonModule.release.xcconfig"; path = "Target Support Files/Pods-CommonModule/Pods-CommonModule.release.xcconfig"; sourceTree = "<group>"; };
 		C2EBA62CEAC51D11D6199C33 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -557,14 +555,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		84647871273A5F95005E461F /* Toast */ = {
-			isa = PBXGroup;
-			children = (
-				84647876273A5FB3005E461F /* Toast.swift */,
-			);
-			path = Toast;
-			sourceTree = "<group>";
-		};
 		F88F48D688D0A6754BB12CED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,7 +567,6 @@
 		FFB0713727217D460070BA46 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				84647871273A5F95005E461F /* Toast */,
 				FFB0713827217D460070BA46 /* VINScannerLib */,
 				FFB0714F27217D460070BA46 /* PNPieChart */,
 				FFB0715327217D460070BA46 /* TableWithCustomIndexTitleView */,
@@ -1329,7 +1318,6 @@
 				FFB072C327217D4D0070BA46 /* GradientSlider.swift in Sources */,
 				FFB0727227217D4B0070BA46 /* UIImageViewExtensions.swift in Sources */,
 				FFB0724327217D4A0070BA46 /* CGSize+DeviceSize.swift in Sources */,
-				84647877273A5FB3005E461F /* Toast.swift in Sources */,
 				FFB0726027217D4B0070BA46 /* UITextViewExtensions.swift in Sources */,
 				FFB0724827217D4A0070BA46 /* CGSizeExtensions.swift in Sources */,
 				FFB072A227217D4D0070BA46 /* DictionaryExtensions.swift in Sources */,
